@@ -645,26 +645,23 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 ════════════════════════════════════ */
 const POSTS = [
   {
-    file: "el-gigante-de-tolox.html",
+    file: "tolox/index.html",
     title: "El Gigante de Tolox",
     location: "Tolox · Málaga",
     river: "Río Grande",
     excerpt: "Una piedra colosal hallada en las aguas del Río Grande de Tolox. Más de 300 millones de años de historia encerrados en calcarenita, testigo silencioso de fenicios, romanos y árabes en la Serranía de Ronda.",
     tag: "Calcarenita · Fluvial",
-    // Imagen: pon aquí la URL de una foto real si la tienes,
-    // o déjalo vacío para mostrar el placeholder SVG
     image: "../assets/gigante-tolox.jpg"
+  },
+  {
+    file: "../index.html",
+    title: "El Roco de Lola",
+    location: "Coín · Málaga",
+    river: "Río Cruz de Piedra",
+    excerpt: "Una pieza de calcarenita fluvial hallada en el corazón de Coín. Más de 200 millones de años de historia geológica y humana en la palma de una mano.",
+    tag: "Calcarenita · Fluvial",
+    image: "../assets/roco_imagen.jpg"
   }
-  // ─── AÑADE AQUÍ MÁS POSTS ───
-  // {
-  //   file: "nombre-del-archivo.html",
-  //   title: "Nombre del Roco",
-  //   location: "Municipio · Provincia",
-  //   river: "Río Nombre",
-  //   excerpt: "Descripción breve del hallazgo...",
-  //   tag: "Tipo de roca",
-  //   image: "../assets/gigante-tolox.jpg" // URL de imagen o vacío
-  // }
 ];
 
 /* ─── Renderizar posts ─── */
