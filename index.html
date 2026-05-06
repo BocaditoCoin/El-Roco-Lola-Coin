@@ -1274,10 +1274,16 @@ footer {
       <!-- Speed -->
       <div class="speed-row">
         <span class="speed-label">Velocidad</span>
-        <button class="spd" onclick="setSpeed(0.8,this)">0.8×</button>
-        <button class="spd on" onclick="setSpeed(0.9,this)">0.9×</button>
-        <button class="spd" onclick="setSpeed(1.0,this)">1.0×</button>
-        <button class="spd" onclick="setSpeed(1.2,this)">1.2×</button>
+        <button class="spd on" onclick="setSpeed(1.0,this)">1.0×</button>
+        <button class="spd" onclick="setSpeed(1.5,this)">1.5×</button>
+        <button class="spd" onclick="setSpeed(2.0,this)">2.0×</button>
+      </div>
+
+      <!-- Voice Selection -->
+      <div class="speed-row" style="margin-top:10px;">
+        <span class="speed-label">Voz</span>
+        <button class="spd on" id="voiceAlvaro" onclick="setVoice('Alvaro',this)">Álvaro</button>
+        <button class="spd" id="voiceElena" onclick="setVoice('Elena',this)">Elena</button>
       </div>
 
       <!-- Transcript -->
@@ -1718,7 +1724,17 @@ function startProg() {
 
 function setSpeed(s,btn) {
   speed=s;
-  document.querySelectorAll('.spd').forEach(b=>b.classList.remove('on'));
+  document.querySelectorAll('.spd').forEach(b=>{
+      if(b.onclick && b.onclick.toString().includes('setSpeed')) b.classList.remove('on');
+  });
+  btn.classList.add('on');
+  if(playing||paused) stopAudio();
+}
+
+function setVoice(v,btn) {
+  document.querySelectorAll('.spd').forEach(b=>{
+      if(b.onclick && b.onclick.toString().includes('setVoice')) b.classList.remove('on');
+  });
   btn.classList.add('on');
   if(playing||paused) stopAudio();
 }
