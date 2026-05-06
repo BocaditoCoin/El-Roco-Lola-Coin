@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog · Noticias de Piedras</title>
+    <link rel="stylesheet" href="../style-common.css">
+    <style>
+        .container { max-width: 800px; margin: 100px auto; padding: 20px; }
+        .post { border-bottom: 1px solid var(--gold); padding: 20px 0; }
+        h1 { color: var(--gold); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Noticias de Piedras</h1>
+        <div id="posts">Cargando artículos...</div>
+    </div>
+    <script>
+        fetch('../data/posts.json')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('posts').innerHTML = data.map(p => 
+                    '<div class="post"><h2>'+p.title+'</h2><p>'+p.content+'</p><small>'+p.date+'</small></div>'
+                ).join('');
+            });
+    </script>
+</body>
+</html>
